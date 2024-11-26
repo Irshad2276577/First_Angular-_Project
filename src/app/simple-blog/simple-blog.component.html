@@ -1,0 +1,42 @@
+<h1>Student Registration</h1>
+<body>
+<form (ngSubmit)="studentData(form)" #form="ngForm">
+    <div>
+         <label name="name">UserName</label>
+         <input type="text" name="name" [(ngModel)]="name" placeholder="Enter Your Name" required>
+    </div>
+    <div>
+        <label name="password">Password</label>
+        <input type="password" name="password" [(ngModel)]="password" placeholder="Enter Your Password" required>
+    </div>
+    <div>
+        <label name="email">Email</label>
+        <input type="text" name="email" [(ngModel)]="email" placeholder="Enter Your Email" required>
+    </div>
+    <div>
+        <label name="Date">Date Of Birth</label>
+        <input type="date" name="Date" [(ngModel)]="date">
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>  
+</form>
+</body>
+<table>
+    <thead>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Password</td>
+        <td>Date</td>
+        <td>Age</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{student.name}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.password}}</td>
+            <td>{{ student.date | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ student.date | agePipe }}</td> 
+        </tr>
+    </tbody>
+</table>
